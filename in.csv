@@ -1,0 +1,2 @@
+"IndicatorID","Indicator","indValue","Notes","InfectionType", "IndicatorType","Malware","Reference","GroupID"
+1337,GET /gate.php,TCP 80,Zbot,Post-Infection,URLIndicator,malware sample,Trusted Partner, 5
