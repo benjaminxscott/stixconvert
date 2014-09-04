@@ -23,7 +23,8 @@ from cybox.objects.port_object import Port
 from cybox.objects.domain_name_object import DomainName
 from cybox.objects.file_object import File
 from cybox.objects.mutex_object import Mutex
-from cybox.objects.http_session_object import HTTPRequestLine
+from cybox.objects.http_session_object import *
+from cybox.objects.win_registry_key_object import RegistryValue
 
 from stix.common.kill_chains import KillChainPhasesReference, KillChain, KillChainPhase
 
@@ -108,29 +109,46 @@ def main():
             ind_obj.subject = row['Indicator']
             # XXX unknown where real data keeps sender name
 
+        elif 'UserAgent' in ind_type:
+            # XXX this method can be used to encode other HTTP headers as well
+            fields = HTTPRequestHeaderFields()
+            fields.user_agent = row['Indicator']
+            fields.user_agent.condition = "Equals"
+            header = HTTPRequestHeader()
+            header.parsed_header = fields
+
+            request = HTTPClientRequest()
+            request.http_request_header = header
+
+            ind_obj = HTTPSession()
+            ind_obj.http_request_response = [request]
+            
         elif 'URL' in ind_type:
-            # TODO for some reason this doesn't emit any stix - see python-cybox #
-            ind_obj = HTTPRequestLine()
-            ind_obj.http_method = row['Indicator'].split()[0]
-            ind_obj.value = row['Indicator'].split()[1]
-            print ind_obj.value
-            ind_obj.value.condition = "Equals" 
+            request = HTTPClientRequest()
+            request.http_request_line = HTTPRequestLine()
+            request.http_request_line.http_method = row['Indicator'].split()[0]
+            request.http_request_line.value = row['Indicator'].split()[1]
+            request.http_request_line.value.condition = "Equals" 
+
+            ind_obj = HTTPSession()
+            ind_obj.http_request_response = [request]
+
 
         elif 'File' in ind_type:
             print "nope"
             ind_obj = File()
             ind_obj.file_name = row['Indicator']
             digest = Hash()
-            # XXX assumes hashes are stored here
+            # XXX assumes that hash digests are stored in this field in real data
             digest.simple_hash_value = row['indValue']
             digest.simple_hash_value.condition = "Equals"
 
             ind_obj.add_hash(digest)
 
         elif 'Registry' in ind_type:
-            print "nope"
-            # TODO
-            #ind_obj = 
+            ind_obj = RegistryValue()
+            ind_obj.name = row['Indicator']
+            ind_obj.data = row['indValue']
 
         elif 'Mutex' in ind_type:
             ind_obj = Mutex()
@@ -147,7 +165,6 @@ def main():
             stix_package.add_indicator(ind)
 
 
-    # TODO test input with all options
     print stix_package.to_xml() 
 
 if __name__ == "__main__":
