@@ -1,6 +1,8 @@
 # ConvertMe
 A converter for indicator data
 
+`NOTE: Since representative input data is not available, this script will need modifications to work in production`
+
 ## Installation
 
 ```
@@ -30,9 +32,9 @@ optional arguments:
 	ID is uniq
 	Indicator is the "thing to look for"
 	indValue is the "hash or registry key"
-	Notes are freeform
+	Notes are freeform text
 	InfectionType is either pre-post, or 'unknown'
 	IndicatorType is IP, domain, email, URI, HTTP content? , File, User-agent, HTTP regex, Registry, Mutex
 	Malware = either "sample" or not
-	Reference = where it came from
+	Reference = source where it came from
 	GroupID = related indicators have the same GID
