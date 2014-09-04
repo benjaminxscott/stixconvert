@@ -24,16 +24,11 @@ from cybox.objects.domain_name_object import DomainName
 from cybox.objects.file_object import File
 from cybox.objects.mutex_object import Mutex
 from cybox.objects.http_session_object import *
-from cybox.objects.win_registry_key_object import RegistryValue
+from cybox.objects.win_registry_key_object import *
 
 from stix.common.kill_chains import KillChainPhasesReference, KillChain, KillChainPhase
 
 def main():
- 
- 
-    # TODO create a empty package for each groupID with title and intent of GID, point to relevant inds as related_indicators
-    # TODO point each relevant ind to empty package as releated_package
-
     # get args
     parser = argparse.ArgumentParser ( description = "Parse a given CSV and output STIX XML" 
     , formatter_class=argparse.ArgumentDefaultsHelpFormatter )
@@ -43,12 +38,15 @@ def main():
     args = parser.parse_args()
 
     # setup header
-    stix_package = STIXPackage()
+    contain_pkg = STIXPackage()
     stix_header = STIXHeader()
     stix_header.title = "Indicators"
     stix_header.add_package_intent ("Indicators - Watchlist")
 
-    stix_package.stix_header = stix_header
+    contain_pkg.stix_header = stix_header
+
+    #manifest is a dict of GID -> stix package to keep track of related indicators
+    manifest = {}
 
     # create kill chain with three options (pre, post, unknown), relate as needed
     pre = KillChainPhase(phase_id="cert_five:pre", name="Pre-infection indicator", ordinality=1)
@@ -56,14 +54,14 @@ def main():
     unk = KillChainPhase(phase_id="cert_five:unknown", name="Unknown ")
     chain = KillChain(id_="cert_five:cyber-kill-chain")
     chain.kill_chain_phases = [pre, post, unk]
-    stix_package.ttps.kill_chains.append(chain)
+    contain_pkg.ttps.kill_chains.append(chain)
 
     # read input data
     fd = open (args.infile, "rb") 
     infile = csv.DictReader(fd)
 
     for row in infile:
-        # print row
+        # create indicator for each row
         error = False
         ind = Indicator()
         ind.alternative_id = row['IndicatorID']
@@ -71,6 +69,9 @@ def main():
         ind.description = row['Notes']
         ind.producer = InformationSource()
         ind.producer.description = row['Reference']
+
+        # XXX unknown purpose for 'Malware' field - omitted
+            # if the field denotes a specific malware family, we might relate as 'Malware TTP' to the indicator
 
         # set chain phase
         if 'Pre' in row['InfectionType']:
@@ -80,11 +81,6 @@ def main():
         else:
             ind.kill_chain_phases.append(unk.phase_id)
  
-        # XXX currently unknown purpose for 'Malware' field - we omit since it sees to be content-free
-            # another solution might relate as 'Malware TTP' to the indicator
-
-        # XXX omitting HTTP content and useragent until we have real example data
-
 
         # XXX we omit indicatortype from output since it's implied in cybox type 
         ind_type = row['IndicatorType']
@@ -107,6 +103,7 @@ def main():
         elif 'Email' in ind_type:
             ind_obj = EmailMessage()
             ind_obj.subject = row['Indicator']
+            ind_obj.subject.condition= "Equals"
             # XXX unknown where real data keeps sender name
 
         elif 'UserAgent' in ind_type:
@@ -135,7 +132,6 @@ def main():
 
 
         elif 'File' in ind_type:
-            print "nope"
             ind_obj = File()
             ind_obj.file_name = row['Indicator']
             digest = Hash()
@@ -146,9 +142,14 @@ def main():
             ind_obj.add_hash(digest)
 
         elif 'Registry' in ind_type:
-            ind_obj = RegistryValue()
-            ind_obj.name = row['Indicator']
-            ind_obj.data = row['indValue']
+            ind_obj = WinRegistryKey()
+            keys = RegistryValues()
+            key = RegistryValue()
+            key.name = row['Indicator']
+            key.data = row['indValue']
+            key.data.condition = "Equals"
+            keys.append(key)
+            ind_obj.values = keys
 
         elif 'Mutex' in ind_type:
             ind_obj = Mutex()
@@ -159,13 +160,34 @@ def main():
             print "ERR type not supported: " + ind_type + " <- will be omitted from output"
             error = True
 
+        # check if the group ID is new
+        gid = row['GroupID'] 
+        if gid not in manifest.keys(): 
+            # create a new package and store in dict
+           metapkg = STIXPackage()
+           header = STIXHeader()
+           header.title = "Manifest for Group: " + gid
+           metapkg.stix_header = header
+           metapkg.related_packages.append(STIXPackage(idref=contain_pkg.id_))
+           metapkg.add_indicator(Indicator(idref=ind.id_))
+           manifest [gid] = metapkg
+
+        else:
+           # just find manifest pkg and point to indicator
+           manifest[gid].add_indicator(Indicator(idref=ind.id_))
+
+        # finalize indicator
         if not error:
-            # all good, add to package
             ind.add_object(ind_obj)
-            stix_package.add_indicator(ind)
+            contain_pkg.add_indicator(ind)
 
+    # DONE looping
 
-    print stix_package.to_xml() 
+    # emit STIX manifeset pkg and container pkg
+    for gid in manifest.keys():
+        print manifest[gid].to_xml(include_namespaces=False) 
+
+    print contain_pkg.to_xml(include_namespaces=False) 
 
 if __name__ == "__main__":
     main()

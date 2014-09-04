@@ -1,8 +1,8 @@
 "IndicatorID","Indicator","indValue","Notes","InfectionType","IndicatorType","Malware","Reference","GroupID"
+37,HKCU/Software/Windows/Startup,badinit.exe,persistance,Post-Infection,RegistryIndicator,malware sample,Trusted Partner,7
 31337,evil.ru,,bad domain,Pre-Infection,DomainIndicator,malware sample,Trusted Partner,5
 888,1.2.3.4,,bad IP,Infection,IPIndicator,malware sample,Trusted Partner,5
 737,bad.exe,deadbeef,Installer,Post-Infection,FileIndicator,malware sample,Trusted Partner,5
 1984,whatisgoingonhiman,,badmutex,Post-Infection,MutexIndicator,malware sample,Trusted Partner,5
 1337,GET /gate.php,TCP 80,Zbot,Post-Infection,URLIndicator,malware sample,Trusted Partner,5
-42,lynx,,headless browser,Post-Infection,UserAgentIndicator,malware sample,Trusted Partner,5
-37,HKCU/Software/Windows/Startup,badinit.exe,persistance,Post-Infection,RegistryIndicator,malware sample,Trusted Partner,5
+42,lynx,,headless browser,Post-Infection,UserAgentIndicator,malware sample,Trusted Partner,7
