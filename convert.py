@@ -51,6 +51,7 @@ def main():
     post = KillChainPhaseReference(phase_id="u5:post", name="Post-infection indicator", ordinality=2,kill_chain_id="u5:KillChain-7808F4B3-61A1-429C-9E05-1D7B9D18A895")
     unk = KillChainPhaseReference(phase_id="u5:unknown", name="Unknown",kill_chain_id="u5:KillChain-7808F4B3-61A1-429C-9E05-1D7B9D18A895")
     chain = KillChain(id_="u5:KillChain-7808F4B3-61A1-429C-9E05-1D7B9D18A895")
+
     chain.kill_chain_phases = [pre, post, unk]
     contain_pkg.ttps.kill_chains.append(chain)
 
@@ -118,7 +119,7 @@ def main():
             ind_obj = HTTPSession()
             ind_obj.http_request_response = [request]
             
-        elif 'URL' in ind_type:
+        elif 'URI' in ind_type:
             request = HTTPClientRequest()
             request.http_request_line = HTTPRequestLine()
             request.http_request_line.http_method = row['Indicator'].split()[0]
