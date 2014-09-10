@@ -120,7 +120,7 @@ def main():
             ind_obj = HTTPSession()
             ind_obj.http_request_response = [request]
             
-        elif 'URL' in ind_type:
+        elif 'URI' in ind_type:
             request = HTTPClientRequest()
             request.http_request_line = HTTPRequestLine()
             request.http_request_line.http_method = row['Indicator'].split()[0]
