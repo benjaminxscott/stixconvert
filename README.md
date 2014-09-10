@@ -6,10 +6,10 @@ A converter for indicator data
 ## Installation
 
 ```
-apt-get install python-lxml zlib1g-dev
-sudo pip install cybox
-git clone https://github.com/STIXProject/python-stix.git 
-sudo mv python-stix/stix /usr/lib/python2.7/stix
+sudo apt-get install python-dev python-pip libxml2-dev libxslt-dev zlib1g-dev
+
+(under active virtualenv) 
+pip install stix
 ```
 
 ## Usage

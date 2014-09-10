@@ -26,7 +26,7 @@ from cybox.objects.mutex_object import Mutex
 from cybox.objects.http_session_object import *
 from cybox.objects.win_registry_key_object import *
 
-from stix.common.kill_chains import KillChainPhasesReference, KillChain, KillChainPhase
+from stix.common.kill_chains import KillChainPhase, KillChain, KillChainPhaseReference
 
 def main():
     # get args
@@ -45,14 +45,12 @@ def main():
 
     contain_pkg.stix_header = stix_header
 
-    #manifest is a dict of GID -> stix package to keep track of related indicators
-    manifest = {}
 
     # create kill chain with three options (pre, post, unknown), relate as needed
-    pre = KillChainPhase(phase_id="cert_five:pre", name="Pre-infection indicator", ordinality=1)
-    post = KillChainPhase(phase_id="cert_five:post", name="Post-infection indicator", ordinality=2)
-    unk = KillChainPhase(phase_id="cert_five:unknown", name="Unknown ")
-    chain = KillChain(id_="cert_five:cyber-kill-chain")
+    pre = KillChainPhaseReference(phase_id="u5:pre", name="Pre-infection indicator", ordinality=1,kill_chain_id="u5:KillChain-7808F4B3-61A1-429C-9E05-1D7B9D18A895")
+    post = KillChainPhaseReference(phase_id="u5:post", name="Post-infection indicator", ordinality=2,kill_chain_id="u5:KillChain-7808F4B3-61A1-429C-9E05-1D7B9D18A895")
+    unk = KillChainPhaseReference(phase_id="u5:unknown", name="Unknown",kill_chain_id="u5:KillChain-7808F4B3-61A1-429C-9E05-1D7B9D18A895")
+    chain = KillChain(id_="u5:KillChain-7808F4B3-61A1-429C-9E05-1D7B9D18A895")
     chain.kill_chain_phases = [pre, post, unk]
     contain_pkg.ttps.kill_chains.append(chain)
 
@@ -64,7 +62,7 @@ def main():
         # create indicator for each row
         error = False
         ind = Indicator()
-        ind.alternative_id = row['IndicatorID']
+        ind.add_alternative_id(row['GroupID'])
         ind.title = "Indicator with ID " + row['IndicatorID'] 
         ind.description = row['Notes']
         ind.producer = InformationSource()
@@ -124,6 +122,7 @@ def main():
             request = HTTPClientRequest()
             request.http_request_line = HTTPRequestLine()
             request.http_request_line.http_method = row['Indicator'].split()[0]
+            request.http_request_line.http_method.condition = "Equals" 
             request.http_request_line.value = row['Indicator'].split()[1]
             request.http_request_line.value.condition = "Equals" 
 
@@ -134,6 +133,7 @@ def main():
         elif 'File' in ind_type:
             ind_obj = File()
             ind_obj.file_name = row['Indicator']
+            ind_obj.file_name.condition = "Equals"
             digest = Hash()
             # XXX assumes that hash digests are stored in this field in real data
             digest.simple_hash_value = row['indValue']
@@ -146,6 +146,7 @@ def main():
             keys = RegistryValues()
             key = RegistryValue()
             key.name = row['Indicator']
+            key.name.condition = "Equals"
             key.data = row['indValue']
             key.data.condition = "Equals"
             keys.append(key)
@@ -160,32 +161,14 @@ def main():
             print "ERR type not supported: " + ind_type + " <- will be omitted from output"
             error = True
 
-        # check if the group ID is new
-        gid = row['GroupID'] 
-        if gid not in manifest.keys(): 
-            # create a new package and store in dict
-           metapkg = STIXPackage()
-           header = STIXHeader()
-           header.title = "Manifest for Group: " + gid
-           metapkg.stix_header = header
-           metapkg.related_packages.append(STIXPackage(idref=contain_pkg.id_))
-           metapkg.add_indicator(Indicator(idref=ind.id_))
-           manifest [gid] = metapkg
 
-        else:
-           # just find manifest pkg and point to indicator
-           manifest[gid].add_indicator(Indicator(idref=ind.id_))
-
+        
         # finalize indicator
         if not error:
             ind.add_object(ind_obj)
             contain_pkg.add_indicator(ind)
 
     # DONE looping
-
-    # emit STIX manifeset pkg and container pkg
-    for gid in manifest.keys():
-        print manifest[gid].to_xml(include_namespaces=False) 
 
     print contain_pkg.to_xml(include_namespaces=False) 
 
