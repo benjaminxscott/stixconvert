@@ -52,7 +52,7 @@ def main():
     pre = KillChainPhase(phase_id="cert_five:pre", name="Pre-infection indicator", ordinality=1)
     post = KillChainPhase(phase_id="cert_five:post", name="Post-infection indicator", ordinality=2)
     unk = KillChainPhase(phase_id="cert_five:unknown", name="Unknown ")
-    chain = KillChain(id_="cert_five:cyber-kill-chain")
+    chain = KillChain(definer="U5", id_="cert_five:cyber-kill-chain")
     chain.kill_chain_phases = [pre, post, unk]
     contain_pkg.ttps.kill_chains.append(chain)
 
