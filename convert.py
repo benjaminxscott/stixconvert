@@ -63,7 +63,7 @@ def main():
         # create indicator for each row
         error = False
         ind = Indicator()
-        ind.add_alternative_id(row['GroupID'])
+        ind.add_alternative_id(row['ControlGroupID'])
         ind.title = "Indicator with ID " + row['IndicatorID'] 
         ind.description = row['Notes']
         ind.producer = InformationSource()
@@ -73,14 +73,13 @@ def main():
             # if the field denotes a specific malware family, we might relate as 'Malware TTP' to the indicator
 
         # set chain phase
-        if 'Pre' in row['InfectionType']:
-            ind.kill_chain_phases.append(pre.phase_id)
-        elif 'Post' in row['InfectionType']:
-            ind.kill_chain_phases.append(post.phase_id)
+        if 'Pre' in row['Infection Type']:
+            ind.kill_chain_phases.append(pre)
+        elif 'Post' in row['Infection Type']:
+            ind.kill_chain_phases.append(post)
  
 
-        # XXX we omit indicatortype from output since it's implied in cybox type 
-        ind_type = row['IndicatorType']
+        ind_type = row['Indicator Type']
         if 'IP' in ind_type:
             ind.add_indicator_type ("IP Watchlist")
             ind_obj = SocketAddress()
@@ -100,7 +99,8 @@ def main():
             ind_obj.value.condition= "Equals"
 
         elif 'Email' in ind_type:
-            
+            # XXX would need to parse out which part of the email is being
+            # i.e. "Sender: blah | Subject: whatever"
             ind.add_indicator_type ("Domain Watchlist")
             ind_obj = EmailMessage()
             
@@ -183,7 +183,7 @@ def main():
 
     # DONE looping
 
-    print contain_pkg.to_xml(include_namespaces=False) 
+    print contain_pkg.to_xml() 
 
 if __name__ == "__main__":
     main()
