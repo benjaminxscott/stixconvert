@@ -168,7 +168,7 @@ def main():
             ind_obj.values = keys
 
         elif 'Mutex' in ind_type:
-            ind.add_indicator_type ("Host Characteristics")
+            ind.add_indicator_type (VocabString(row['Indicator Type']))
             ind_obj = Mutex()
             ind_obj.name = row['Indicator']
             ind_obj.name.condition= "Equals"
