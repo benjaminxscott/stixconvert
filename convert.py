@@ -16,6 +16,7 @@ from stix.common import (InformationSource, Identity, RelatedObservable,
                          VocabString)
 from cybox.common import ToolInformationList, Time
 from cybox.common import Hash
+from stix.common.vocabs import VocabString
 
 from cybox.objects.email_message_object import EmailMessage
 from cybox.objects.socket_address_object import SocketAddress
@@ -41,14 +42,14 @@ def main():
     contain_pkg = STIXPackage()
     stix_header = STIXHeader()
     stix_header.title = "Indicators"
-    stix_header.add_package_intent ("Indicators - Watchlist")
+    stix_header.add_package_intent ("Indicators")
     # XXX add Information_Source and Handling
     contain_pkg.stix_header = stix_header
 
 
     # create kill chain with three options (pre, post, unknown), relate as needed
-    pre = KillChainPhaseReference(phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee", name="Pre-infection indicator", ordinality=1,kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d")
-    post = KillChainPhaseReference(phase_id="stix:KillChainPhase-d5459305-1a27-4f50-9875-23793d75e4fe", name="Post-infection indicator", ordinality=2,kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d")
+    pre = KillChainPhase(phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee", name="Pre-infection indicator", ordinality=1)
+    post = KillChainPhase(phase_id="stix:KillChainPhase-d5459305-1a27-4f50-9875-23793d75e4fe", name="Post-infection indicator", ordinality=2)
     chain = KillChain(id_="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d", name="Degenerate Cyber Kill Chain"  )
     chain.definer = "U5"
 
@@ -74,14 +75,15 @@ def main():
 
         # set chain phase
         if 'Pre' in row['Infection Type']:
-            ind.kill_chain_phases.append(pre)
+            ind.kill_chain_phases.append(KillChainPhaseReference(phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee", name="Pre-infection indicator",kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"))
         elif 'Post' in row['Infection Type']:
-            ind.kill_chain_phases.append(post)
+            ind.kill_chain_phases.append(KillChainPhaseReference(phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee", name="Post-infection indicator",kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"))
  
 
         ind_type = row['Indicator Type']
         if 'IP' in ind_type:
-            ind.add_indicator_type ("IP Watchlist")
+            
+            ind.add_indicator_type( "IP Watchlist")
             ind_obj = SocketAddress()
             ind_obj.ip_address = row['Indicator']
             ind_obj.ip_address.condition= "Equals"
@@ -93,7 +95,7 @@ def main():
 
 
         elif 'Domain' in ind_type:
-            ind.add_indicator_type ("Malicious E-mail")
+            ind.add_indicator_type ("Domain Watchlist")
             ind_obj = DomainName()
             ind_obj.value = row['Indicator']
             ind_obj.value.condition= "Equals"
@@ -101,7 +103,7 @@ def main():
         elif 'Email' in ind_type:
             # XXX would need to parse out which part of the email is being
             # i.e. "Sender: blah | Subject: whatever"
-            ind.add_indicator_type ("Domain Watchlist")
+            ind.add_indicator_type ("Malicious E-mail")
             ind_obj = EmailMessage()
             
             ind_obj.subject = row['Indicator']
@@ -109,36 +111,38 @@ def main():
             # XXX unknown where real data keeps sender name
 
         elif 'User Agent' in ind_type:
-            ind.add_indicator_type ("C2")
-            # XXX this method can be used to encode other HTTP headers as well
+            ind.add_indicator_type( VocabString(row['Indicator Type']))
+            
             fields = HTTPRequestHeaderFields()
             fields.user_agent = row['Indicator']
             fields.user_agent.condition = "Equals"
             header = HTTPRequestHeader()
             header.parsed_header = fields
 
-            request = HTTPClientRequest()
-            request.http_request_header = header
+            thing = HTTPRequestResponse()
+            thing.http_client_request = HTTPClientRequest()
+            thing.http_client_request.http_request_header = header
 
             ind_obj = HTTPSession()
-            ind_obj.http_request_response = [request]
+            ind_obj.http_request_response = [thing]
             
         elif 'URI' in ind_type:
-            ind.add_indicator_type ("URL Watchlist")
+            ind.add_indicator_type( VocabString(row['Indicator Type']))
     
-            request = HTTPClientRequest()
-            request.http_request_line = HTTPRequestLine()
-            request.http_request_line.http_method = row['Indicator'].split()[0]
-            request.http_request_line.http_method.condition = "Equals" 
-            request.http_request_line.value = row['Indicator'].split()[1]
-            request.http_request_line.value.condition = "Equals" 
+            thing = HTTPRequestResponse()
+            thing.http_client_request = HTTPClientRequest()
+            thing.http_client_request.http_request_line = HTTPRequestLine()
+            thing.http_client_request.http_request_line.http_method = row['Indicator'].split()[0]
+            thing.http_client_request.http_request_line.http_method.condition = "Equals" 
+            thing.http_client_request.http_request_line.value = row['Indicator'].split()[1]
+            thing.http_client_request.http_request_line.value.condition = "Equals" 
 
             ind_obj = HTTPSession()
-            ind_obj.http_request_response = [request]
+            ind_obj.http_request_response = [thing]
 
 
         elif 'File' in ind_type:
-            ind.add_indicator_type ("File Hash Watchlist")
+            ind.add_indicator_type( VocabString(row['Indicator Type']))
             ind_obj = File()
             ind_obj.file_name = row['Indicator']
             ind_obj.file_name.condition = "Equals"
@@ -151,7 +155,7 @@ def main():
             ind_obj.add_hash(digest)
 
         elif 'Registry' in ind_type:
-            ind.add_indicator_type ("Host Characteristics")
+            ind.add_indicator_type( VocabString(row['Indicator Type']))
             
             ind_obj = WinRegistryKey()
             keys = RegistryValues()
@@ -164,7 +168,6 @@ def main():
             ind_obj.values = keys
 
         elif 'Mutex' in ind_type:
-            
             ind.add_indicator_type ("Host Characteristics")
             ind_obj = Mutex()
             ind_obj.name = row['Indicator']
@@ -174,8 +177,6 @@ def main():
             print "ERR type not supported: " + ind_type + " <- will be omitted from output"
             error = True
 
-
-        
         # finalize indicator
         if not error:
             ind.add_object(ind_obj)
