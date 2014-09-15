@@ -75,9 +75,9 @@ def main():
 
         # set chain phase
         if 'Pre' in row['Infection Type']:
-            ind.kill_chain_phases.append(KillChainPhaseReference(phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee", name="Pre-infection indicator",kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"))
+            ind.kill_chain_phases.append(KillChainPhaseReference(phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee",kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"))
         elif 'Post' in row['Infection Type']:
-            ind.kill_chain_phases.append(KillChainPhaseReference(phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee", name="Post-infection indicator",kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"))
+            ind.kill_chain_phases.append(KillChainPhaseReference(phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee",kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"))
  
 
         ind_type = row['Indicator Type']
