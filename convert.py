@@ -6,6 +6,8 @@ import argparse
 from stix.ttp import TTP, Resource
 from stix.ttp.infrastructure import Infrastructure
 
+import cybox.utils
+
 from datetime import datetime
 from dateutil.tz import tzutc
 from stix.indicator import Indicator
@@ -18,7 +20,7 @@ from cybox.common import ToolInformationList, Time
 from cybox.common import Hash
 from stix.common.vocabs import VocabString
 
-from cybox.objects.email_message_object import EmailMessage
+from cybox.objects.email_message_object import EmailMessage,Attachments
 from cybox.objects.socket_address_object import SocketAddress
 from cybox.objects.port_object import Port
 from cybox.objects.domain_name_object import DomainName
@@ -103,15 +105,32 @@ def main():
             ind_obj.value.condition= "Equals"
 
         elif 'Email' in ind_type:
-            # XXX would need to parse out which part of the email is being
-            # i.e. "Sender: blah | Subject: whatever"
+            # parse out which part of the email is being
+            # i.e. "Sender: attach | Subject: whatever"
+            tag = row['Indicator'].split()[0]
+            val = row['Indicator'].split()[1]
             ind.add_indicator_type ("Malicious E-mail")
             ind_obj = EmailMessage()
             
-            ind_obj.subject = row['Indicator']
-            ind_obj.subject.condition= "Equals"
-            # XXX unknown where real data keeps sender name
-
+            if "Subject" in tag:
+                ind_obj.subject = val
+                ind_obj.subject.condition= "Equals"
+            elif "Sender" in tag:
+                ind_obj.sender = val
+                ind_obj.sender.condition= "Equals"
+            
+            elif "Attachment" in tag:
+                # make inline File to store filename 
+                file_obj = File()
+                file_obj.id_ = cybox.utils.create_id(prefix="File")
+                file_obj.file_name = val
+                file_obj.file_name.condition = "Equals"
+                ind_obj.add_related(file_obj, "Contains")
+                
+                attach = Attachments()
+                attach.append(file_obj.id_)
+                ind_obj.attachments = attach
+                
         elif 'User Agent' in ind_type:
             ind.add_indicator_type( VocabString(row['Indicator Type']))
             
