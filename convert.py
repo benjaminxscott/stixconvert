@@ -150,7 +150,7 @@ def main():
             ind_obj.file_name.condition = "Equals"
             digest = Hash()
             # XXX assumes that hash digests are stored in this field in real data
-            digest.simple_hash_value = row['indValue']
+            digest.simple_hash_value = row['indValue'].strip()
             digest.simple_hash_value.condition = "Equals"
             digest.type_.condition = "Equals"
 

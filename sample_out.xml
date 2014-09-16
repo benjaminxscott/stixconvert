@@ -31,18 +31,18 @@
 	http://stix.mitre.org/Indicator-2 http://stix.mitre.org/XMLSchema/indicator/2.1.1/indicator.xsd
 	http://stix.mitre.org/common-1 http://stix.mitre.org/XMLSchema/common/1.1.1/stix_common.xsd
 	http://stix.mitre.org/default_vocabularies-1 http://stix.mitre.org/XMLSchema/default_vocabularies/1.1.1/stix_default_vocabularies.xsd
-	http://stix.mitre.org/stix-1 http://stix.mitre.org/XMLSchema/core/1.1.1/stix_core.xsd" id="example:Package-9d2addbb-6821-4dc5-b654-3d3c4a755dd4" version="1.1.1" timestamp="2014-09-16T13:49:54.281918+00:00">
+	http://stix.mitre.org/stix-1 http://stix.mitre.org/XMLSchema/core/1.1.1/stix_core.xsd" id="example:Package-0a86c199-327f-4789-ae45-72c40df98cf9" version="1.1.1" timestamp="2014-09-16T13:53:37.706929+00:00">
     <stix:STIX_Header>
         <stix:Title>Indicators</stix:Title>
         <stix:Package_Intent xsi:type="stixVocabs:PackageIntentVocab-1.0">Indicators</stix:Package_Intent>
     </stix:STIX_Header>
     <stix:Indicators>
-        <stix:Indicator id="example:indicator-082825ef-c6ed-4fd7-b0b8-66fffb4527fc" timestamp="2014-09-16T13:49:54.282258+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+        <stix:Indicator id="example:indicator-be3cad92-7922-44d5-a7c9-61287b729a58" timestamp="2014-09-16T13:53:37.707281+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
             <indicator:Title>Indicator with ID 4214227</indicator:Title>
             <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">Malicious E-mail</indicator:Type>
             <indicator:Alternative_ID>1039</indicator:Alternative_ID>
-            <indicator:Observable id="example:Observable-509df880-e2d9-42d7-84a2-c50590387f6d">
-                <cybox:Object id="example:EmailMessage-26edb06f-0aab-4b63-8d5a-90a8e9abe612">
+            <indicator:Observable id="example:Observable-d3797784-d2c4-44ad-87cb-22071e156e45">
+                <cybox:Object id="example:EmailMessage-bec4fbdb-4ee2-4717-b495-1919dd79e9e5">
                     <cybox:Properties xsi:type="EmailMessageObj:EmailMessageObjectType">
                         <EmailMessageObj:Header>
                             <EmailMessageObj:Subject condition="Equals">Subject: Scanned Image from a HP Digital Device</EmailMessageObj:Subject>
@@ -57,12 +57,12 @@
                 <stixCommon:Description>Trusted Partner</stixCommon:Description>
             </indicator:Producer>
         </stix:Indicator>
-        <stix:Indicator id="example:indicator-61875d52-0318-4f06-a42e-c719a191041e" timestamp="2014-09-16T13:49:54.282616+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+        <stix:Indicator id="example:indicator-e5edba5e-691c-4612-9538-102e64fa8322" timestamp="2014-09-16T13:53:37.707673+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
             <indicator:Title>Indicator with ID 4214228</indicator:Title>
             <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">Malicious E-mail</indicator:Type>
             <indicator:Alternative_ID>1039</indicator:Alternative_ID>
-            <indicator:Observable id="example:Observable-fe673ba4-30d7-41ee-a66e-de6e39d7a729">
-                <cybox:Object id="example:EmailMessage-2743467c-6dcf-4cf4-93b9-8f8ecf00e16d">
+            <indicator:Observable id="example:Observable-56efca1c-11c7-497a-8244-c8ee78ebbc03">
+                <cybox:Object id="example:EmailMessage-15a7fce4-06ff-4fa5-8837-15935b4618ce">
                     <cybox:Properties xsi:type="EmailMessageObj:EmailMessageObjectType">
                         <EmailMessageObj:Header>
                             <EmailMessageObj:Subject condition="Equals">Sender: supprefnum170@theemploymentspecialistlawyers[.]com</EmailMessageObj:Subject>
@@ -77,12 +77,12 @@
                 <stixCommon:Description>Trusted Partner</stixCommon:Description>
             </indicator:Producer>
         </stix:Indicator>
-        <stix:Indicator id="example:indicator-062aaa66-70fe-43ab-9918-a95fc4c0d4bb" timestamp="2014-09-16T13:49:54.282906+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+        <stix:Indicator id="example:indicator-f41048a3-80a1-4a4a-be68-ff56dd7ddae2" timestamp="2014-09-16T13:53:37.707925+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
             <indicator:Title>Indicator with ID 4214229</indicator:Title>
             <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">Malicious E-mail</indicator:Type>
             <indicator:Alternative_ID>1039</indicator:Alternative_ID>
-            <indicator:Observable id="example:Observable-3be91888-0be3-4c05-81ab-0a04212fabc2">
-                <cybox:Object id="example:EmailMessage-b2a8a456-f224-4c1e-b3f3-4c13c60496e3">
+            <indicator:Observable id="example:Observable-900bbe40-29e8-4e26-b7ac-7aa51103fd30">
+                <cybox:Object id="example:EmailMessage-c7f9be58-2baa-4ec2-ab4c-ba849ffe9bef">
                     <cybox:Properties xsi:type="EmailMessageObj:EmailMessageObjectType">
                         <EmailMessageObj:Header>
                             <EmailMessageObj:Subject condition="Equals">Subject: Urgent court notice SN36856</EmailMessageObj:Subject>
@@ -97,12 +97,12 @@
                 <stixCommon:Description>Trusted Partner</stixCommon:Description>
             </indicator:Producer>
         </stix:Indicator>
-        <stix:Indicator id="example:indicator-71a879ea-c43d-4c93-bdae-1e17bae68532" timestamp="2014-09-16T13:49:54.283150+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+        <stix:Indicator id="example:indicator-c6a9b65b-2d27-4456-991c-15ca8e619e8d" timestamp="2014-09-16T13:53:37.708160+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
             <indicator:Title>Indicator with ID 4214230</indicator:Title>
             <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">Malicious E-mail</indicator:Type>
             <indicator:Alternative_ID>1039</indicator:Alternative_ID>
-            <indicator:Observable id="example:Observable-38c23cec-b544-494e-bdca-8c4f9965582b">
-                <cybox:Object id="example:EmailMessage-62967ebf-5f55-4aa6-8ee4-daaf19a83761">
+            <indicator:Observable id="example:Observable-f61e6e48-76b3-4398-a5d2-97b3b07b102e">
+                <cybox:Object id="example:EmailMessage-c9ded947-7f97-4555-b385-aefd17687780">
                     <cybox:Properties xsi:type="EmailMessageObj:EmailMessageObjectType">
                         <EmailMessageObj:Header>
                             <EmailMessageObj:Subject condition="Equals">Attachment: Copy_court_notice_TN8050.zip</EmailMessageObj:Subject>
@@ -117,18 +117,18 @@
                 <stixCommon:Description>Trusted Partner</stixCommon:Description>
             </indicator:Producer>
         </stix:Indicator>
-        <stix:Indicator id="example:indicator-b33579c7-4f2b-4667-915b-c9b16958e6f7" timestamp="2014-09-16T13:49:54.283431+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+        <stix:Indicator id="example:indicator-fa0319e0-38c3-4d23-9d1b-f7aa354a0be7" timestamp="2014-09-16T13:53:37.708402+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
             <indicator:Title>Indicator with ID 4214231</indicator:Title>
             <indicator:Type>File Indicator(s)</indicator:Type>
             <indicator:Alternative_ID>1039</indicator:Alternative_ID>
-            <indicator:Observable id="example:Observable-e75047f2-0537-43f1-b3ba-764dfc9e754b">
-                <cybox:Object id="example:File-5b8b5965-aa62-42e4-8180-0c2dfe112a07">
+            <indicator:Observable id="example:Observable-baa98d5b-f341-4313-b936-aeef3129489b">
+                <cybox:Object id="example:File-adc5be87-dcdf-482a-9469-e32c7cdaaf89">
                     <cybox:Properties xsi:type="FileObj:FileObjectType">
                         <FileObj:File_Name condition="Equals">Court_Notice_Copy.exe</FileObj:File_Name>
                         <FileObj:Hashes>
                             <cyboxCommon:Hash>
-                                <cyboxCommon:Type condition="Equals" xsi:type="cyboxVocabs:HashNameVocab-1.0">Other</cyboxCommon:Type>
-                                <cyboxCommon:Simple_Hash_Value condition="Equals">4adee84193b467d0ea2a2a64e4767586 </cyboxCommon:Simple_Hash_Value>
+                                <cyboxCommon:Type condition="Equals" xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
+                                <cyboxCommon:Simple_Hash_Value condition="Equals">4adee84193b467d0ea2a2a64e4767586</cyboxCommon:Simple_Hash_Value>
                             </cyboxCommon:Hash>
                         </FileObj:Hashes>
                     </cybox:Properties>
@@ -141,12 +141,12 @@
                 <stixCommon:Description>Trusted Partner</stixCommon:Description>
             </indicator:Producer>
         </stix:Indicator>
-        <stix:Indicator id="example:indicator-c67de919-4d43-419f-a84f-f30afae8b9cf" timestamp="2014-09-16T13:49:54.283722+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+        <stix:Indicator id="example:indicator-5c4b4b5d-2a16-4aee-a9d2-e90d4b96b1b6" timestamp="2014-09-16T13:53:37.708693+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
             <indicator:Title>Indicator with ID 4214232</indicator:Title>
             <indicator:Type>File Indicator(s)</indicator:Type>
             <indicator:Alternative_ID>1039</indicator:Alternative_ID>
-            <indicator:Observable id="example:Observable-aa7db266-82ac-42df-b497-519f88224419">
-                <cybox:Object id="example:File-711a10eb-fd76-45ad-8df7-4f684c288ccf">
+            <indicator:Observable id="example:Observable-c0373735-acf8-4887-a9c1-0e0dc2cbaa19">
+                <cybox:Object id="example:File-f9e86166-491c-48e2-bc00-32be73b8223d">
                     <cybox:Properties xsi:type="FileObj:FileObjectType">
                         <FileObj:File_Name condition="Equals">Copy_court_notice_TN8050.zip</FileObj:File_Name>
                         <FileObj:Hashes>
@@ -165,12 +165,12 @@
                 <stixCommon:Description>Trusted Partner</stixCommon:Description>
             </indicator:Producer>
         </stix:Indicator>
-        <stix:Indicator id="example:indicator-f307c0f9-6b7e-415f-89a4-39affe719b0e" timestamp="2014-09-16T13:49:54.284004+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+        <stix:Indicator id="example:indicator-5806a011-0554-4ad4-9aa0-e8e5c444c27a" timestamp="2014-09-16T13:53:37.708956+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
             <indicator:Title>Indicator with ID 4214233</indicator:Title>
             <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">IP Watchlist</indicator:Type>
             <indicator:Alternative_ID>1039</indicator:Alternative_ID>
-            <indicator:Observable id="example:Observable-788d38aa-f761-4c91-be11-79a287f7fad6">
-                <cybox:Object id="example:SocketAddress-c5816515-190d-4eab-9672-299dfbab851b">
+            <indicator:Observable id="example:Observable-daca4fbe-21f7-4871-a381-8e682e813a5a">
+                <cybox:Object id="example:SocketAddress-17273989-b277-4bfe-bf32-efaef7b0fdf2">
                     <cybox:Properties xsi:type="SocketAddressObj:SocketAddressObjectType">
                         <SocketAddressObj:IP_Address xsi:type="AddressObj:AddressObjectType">
                             <AddressObj:Address_Value condition="Equals">194[.]90[.]168[.]147</AddressObj:Address_Value>
@@ -189,12 +189,12 @@
                 <stixCommon:Description>Trusted Partner</stixCommon:Description>
             </indicator:Producer>
         </stix:Indicator>
-        <stix:Indicator id="example:indicator-51abfa63-aeb9-412e-ac56-a96f97df59fd" timestamp="2014-09-16T13:49:54.284458+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+        <stix:Indicator id="example:indicator-6567d6cd-57dd-400e-9084-b32078ffd833" timestamp="2014-09-16T13:53:37.709350+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
             <indicator:Title>Indicator with ID 4214234</indicator:Title>
             <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">IP Watchlist</indicator:Type>
             <indicator:Alternative_ID>1039</indicator:Alternative_ID>
-            <indicator:Observable id="example:Observable-492cf45c-3a0c-4983-98a9-25bad3058199">
-                <cybox:Object id="example:SocketAddress-5eb005f2-a7df-49fd-aedc-29929e856d7c">
+            <indicator:Observable id="example:Observable-4eb7425d-e9b3-4162-baf5-a5b0f63e825f">
+                <cybox:Object id="example:SocketAddress-007ffebf-9c0c-438d-b1b2-eabb01b4985c">
                     <cybox:Properties xsi:type="SocketAddressObj:SocketAddressObjectType">
                         <SocketAddressObj:IP_Address xsi:type="AddressObj:AddressObjectType">
                             <AddressObj:Address_Value condition="Equals">174[.]122[.]234[.]98 </AddressObj:Address_Value>
@@ -213,12 +213,12 @@
                 <stixCommon:Description>Trusted Partner</stixCommon:Description>
             </indicator:Producer>
         </stix:Indicator>
-        <stix:Indicator id="example:indicator-8631ab61-4b96-4342-998e-f43339a87adf" timestamp="2014-09-16T13:49:54.284729+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+        <stix:Indicator id="example:indicator-66196f34-a688-4035-aca6-b220c084d4d7" timestamp="2014-09-16T13:53:37.709612+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
             <indicator:Title>Indicator with ID 4214235</indicator:Title>
             <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">IP Watchlist</indicator:Type>
             <indicator:Alternative_ID>1039</indicator:Alternative_ID>
-            <indicator:Observable id="example:Observable-0861e849-792c-4727-946f-561a2693326f">
-                <cybox:Object id="example:SocketAddress-cda3cee8-6de9-44e5-9024-f7b1de1cb75a">
+            <indicator:Observable id="example:Observable-ea641625-28e6-4438-a2bf-939d0f234408">
+                <cybox:Object id="example:SocketAddress-0e2219ad-62db-4f06-bee6-19a3847a34d4">
                     <cybox:Properties xsi:type="SocketAddressObj:SocketAddressObjectType">
                         <SocketAddressObj:IP_Address xsi:type="AddressObj:AddressObjectType">
                             <AddressObj:Address_Value condition="Equals">174[.]122[.]234[.]98 </AddressObj:Address_Value>
@@ -237,12 +237,12 @@
                 <stixCommon:Description>Trusted Partner</stixCommon:Description>
             </indicator:Producer>
         </stix:Indicator>
-        <stix:Indicator id="example:indicator-a7f2fbcf-a47a-4ae4-b9ba-e25d7edc8abd" timestamp="2014-09-16T13:49:54.285031+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+        <stix:Indicator id="example:indicator-bf01adba-3523-4f93-baba-d9e7c6a25b7c" timestamp="2014-09-16T13:53:37.709885+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
             <indicator:Title>Indicator with ID 4214236</indicator:Title>
             <indicator:Type>HTTP URI Indicator(s)</indicator:Type>
             <indicator:Alternative_ID>1039</indicator:Alternative_ID>
-            <indicator:Observable id="example:Observable-38ff1c1c-6bad-4599-8dee-3d4045369ad8">
-                <cybox:Object id="example:HTTPSession-3fc4ccc0-0371-4d59-a11f-90710f6768fb">
+            <indicator:Observable id="example:Observable-367a43e9-dcd7-416c-ae51-38a4589d601b">
+                <cybox:Object id="example:HTTPSession-956263ab-4584-4743-a351-bee528cf1fb1">
                     <cybox:Properties xsi:type="HTTPSessionObj:HTTPSessionObjectType">
                         <HTTPSessionObj:HTTP_Request_Response>
                             <HTTPSessionObj:HTTP_Client_Request>
@@ -262,12 +262,12 @@
                 <stixCommon:Description>Trusted Partner</stixCommon:Description>
             </indicator:Producer>
         </stix:Indicator>
-        <stix:Indicator id="example:indicator-885551b3-96b9-4080-b9ca-5274b94f2756" timestamp="2014-09-16T13:49:54.285551+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+        <stix:Indicator id="example:indicator-c8e8abcc-64ba-49de-bea8-a4664aaceea9" timestamp="2014-09-16T13:53:37.710143+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
             <indicator:Title>Indicator with ID 4214237</indicator:Title>
             <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">Malicious E-mail</indicator:Type>
             <indicator:Alternative_ID>1039</indicator:Alternative_ID>
-            <indicator:Observable id="example:Observable-6cf3c919-6be4-41a8-9d49-3d0939a5e929">
-                <cybox:Object id="example:EmailMessage-bf2cd3d1-d960-4bed-bb0f-8c6a53f3b94a">
+            <indicator:Observable id="example:Observable-04ec3391-95c5-4f88-a62b-69d3328fa260">
+                <cybox:Object id="example:EmailMessage-2c00edbe-68c8-444f-8f58-3da56be5b02b">
                     <cybox:Properties xsi:type="EmailMessageObj:EmailMessageObjectType">
                         <EmailMessageObj:Header>
                             <EmailMessageObj:Subject condition="Equals">Sender: no-reply@sage[.]co[.]uk</EmailMessageObj:Subject>
@@ -282,12 +282,12 @@
                 <stixCommon:Description>Trusted Partner</stixCommon:Description>
             </indicator:Producer>
         </stix:Indicator>
-        <stix:Indicator id="example:indicator-a047b119-0171-4162-b556-667c5bafe3a4" timestamp="2014-09-16T13:49:54.285800+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+        <stix:Indicator id="example:indicator-832cac4e-9258-4c84-b076-68fec1938b9e" timestamp="2014-09-16T13:53:37.710615+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
             <indicator:Title>Indicator with ID 4214238</indicator:Title>
             <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">Malicious E-mail</indicator:Type>
             <indicator:Alternative_ID>1039</indicator:Alternative_ID>
-            <indicator:Observable id="example:Observable-09a954f9-5d90-41f8-8959-3b1a609ee0d3">
-                <cybox:Object id="example:EmailMessage-42548c40-0bbf-4c6b-940a-c8c4af13807d">
+            <indicator:Observable id="example:Observable-394a2bf0-0b3a-493e-955f-cd8c6cd436e7">
+                <cybox:Object id="example:EmailMessage-223208ba-a6a8-4068-b51a-a5f963be5e10">
                     <cybox:Properties xsi:type="EmailMessageObj:EmailMessageObjectType">
                         <EmailMessageObj:Header>
                             <EmailMessageObj:Subject condition="Equals">Subject: Sage Accounting Invoice #5740995</EmailMessageObj:Subject>
@@ -302,12 +302,12 @@
                 <stixCommon:Description>Trusted Partner</stixCommon:Description>
             </indicator:Producer>
         </stix:Indicator>
-        <stix:Indicator id="example:indicator-a1323219-2198-4cb2-91de-27febbe68821" timestamp="2014-09-16T13:49:54.286084+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+        <stix:Indicator id="example:indicator-7610f843-27ea-4b3a-b5b4-ef69c96c1a8e" timestamp="2014-09-16T13:53:37.710965+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
             <indicator:Title>Indicator with ID 4214239</indicator:Title>
             <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">Malicious E-mail</indicator:Type>
             <indicator:Alternative_ID>1039</indicator:Alternative_ID>
-            <indicator:Observable id="example:Observable-71b3bff1-8811-4eff-bf84-e79f78cc5049">
-                <cybox:Object id="example:EmailMessage-f168fcf7-aee6-4f48-8c27-8ac3b79bed58">
+            <indicator:Observable id="example:Observable-0977062b-780d-45a7-887c-05fcc7132c6b">
+                <cybox:Object id="example:EmailMessage-18b5984c-de8a-413d-b856-09609a268ffc">
                     <cybox:Properties xsi:type="EmailMessageObj:EmailMessageObjectType">
                         <EmailMessageObj:Header>
                             <EmailMessageObj:Subject condition="Equals">Attachment: Invoice_5740995.zip</EmailMessageObj:Subject>
@@ -322,18 +322,18 @@
                 <stixCommon:Description>Trusted Partner</stixCommon:Description>
             </indicator:Producer>
         </stix:Indicator>
-        <stix:Indicator id="example:indicator-29c224f5-d523-4be1-b484-c730ba7576c1" timestamp="2014-09-16T13:49:54.286335+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+        <stix:Indicator id="example:indicator-04d9db00-09aa-44a9-add9-7111f3a5c4bb" timestamp="2014-09-16T13:53:37.711210+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
             <indicator:Title>Indicator with ID 4214240</indicator:Title>
             <indicator:Type>File Indicator(s)</indicator:Type>
             <indicator:Alternative_ID>1039</indicator:Alternative_ID>
-            <indicator:Observable id="example:Observable-49296245-0d84-40c4-9c7c-5ae142563603">
-                <cybox:Object id="example:File-f210a4dd-f011-4d97-a3c7-f0587637f241">
+            <indicator:Observable id="example:Observable-c6acaf02-7de0-45e9-873d-5c0bcd387b57">
+                <cybox:Object id="example:File-cf2c0582-6148-4333-a504-c795b434dc86">
                     <cybox:Properties xsi:type="FileObj:FileObjectType">
                         <FileObj:File_Name condition="Equals">Invoice_04022014.exe</FileObj:File_Name>
                         <FileObj:Hashes>
                             <cyboxCommon:Hash>
-                                <cyboxCommon:Type condition="Equals" xsi:type="cyboxVocabs:HashNameVocab-1.0">Other</cyboxCommon:Type>
-                                <cyboxCommon:Simple_Hash_Value condition="Equals">e6da8b80e9443df6234a7482224f4bcb </cyboxCommon:Simple_Hash_Value>
+                                <cyboxCommon:Type condition="Equals" xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
+                                <cyboxCommon:Simple_Hash_Value condition="Equals">e6da8b80e9443df6234a7482224f4bcb</cyboxCommon:Simple_Hash_Value>
                             </cyboxCommon:Hash>
                         </FileObj:Hashes>
                     </cybox:Properties>
@@ -346,18 +346,18 @@
                 <stixCommon:Description>Trusted Partner</stixCommon:Description>
             </indicator:Producer>
         </stix:Indicator>
-        <stix:Indicator id="example:indicator-c66cbe83-71aa-4926-8511-5ac24399fce3" timestamp="2014-09-16T13:49:54.286660+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+        <stix:Indicator id="example:indicator-6f024216-fe43-4f13-8984-48f6eca262d5" timestamp="2014-09-16T13:53:37.711499+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
             <indicator:Title>Indicator with ID 4214241</indicator:Title>
             <indicator:Type>File Indicator(s)</indicator:Type>
             <indicator:Alternative_ID>1039</indicator:Alternative_ID>
-            <indicator:Observable id="example:Observable-c4e66d20-2451-42ea-8eff-d5b31811ee8f">
-                <cybox:Object id="example:File-bbf0880e-7507-48e1-837f-f89a8d046207">
+            <indicator:Observable id="example:Observable-6d1a963e-5eb3-4505-bd1c-3f08ff38e264">
+                <cybox:Object id="example:File-ab4a80cd-a24a-4a00-87c0-38378fd6d361">
                     <cybox:Properties xsi:type="FileObj:FileObjectType">
                         <FileObj:File_Name condition="Equals">Invoice_5740995.zip</FileObj:File_Name>
                         <FileObj:Hashes>
                             <cyboxCommon:Hash>
-                                <cyboxCommon:Type condition="Equals" xsi:type="cyboxVocabs:HashNameVocab-1.0">Other</cyboxCommon:Type>
-                                <cyboxCommon:Simple_Hash_Value condition="Equals">5f343a577e04d708fa89e8cc941f9dc1 </cyboxCommon:Simple_Hash_Value>
+                                <cyboxCommon:Type condition="Equals" xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
+                                <cyboxCommon:Simple_Hash_Value condition="Equals">5f343a577e04d708fa89e8cc941f9dc1</cyboxCommon:Simple_Hash_Value>
                             </cyboxCommon:Hash>
                         </FileObj:Hashes>
                     </cybox:Properties>
@@ -370,12 +370,12 @@
                 <stixCommon:Description>Trusted Partner</stixCommon:Description>
             </indicator:Producer>
         </stix:Indicator>
-        <stix:Indicator id="example:indicator-3a257f0b-f193-4966-b31d-e8c73cc72915" timestamp="2014-09-16T13:49:54.286951+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+        <stix:Indicator id="example:indicator-58ce390b-147a-4bcb-9264-9bbb62184892" timestamp="2014-09-16T13:53:37.711829+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
             <indicator:Title>Indicator with ID 4214242</indicator:Title>
             <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">Domain Watchlist</indicator:Type>
             <indicator:Alternative_ID>1039</indicator:Alternative_ID>
-            <indicator:Observable id="example:Observable-cd6715ce-7f8f-4760-967c-09367a5b901e">
-                <cybox:Object id="example:DomainName-9b14d8dd-4c0c-46b3-a973-988fb573c07b">
+            <indicator:Observable id="example:Observable-7faf2c03-1360-4b18-b36f-b7deaa0920b5">
+                <cybox:Object id="example:DomainName-adb6a0da-5bd6-4f07-a87b-283a791180de">
                     <cybox:Properties xsi:type="DomainNameObj:DomainNameObjectType">
                         <DomainNameObj:Value condition="Equals">tadanoasia[.]com </DomainNameObj:Value>
                     </cybox:Properties>
@@ -388,12 +388,12 @@
                 <stixCommon:Description>Trusted Partner</stixCommon:Description>
             </indicator:Producer>
         </stix:Indicator>
-        <stix:Indicator id="example:indicator-2a93d21b-8d15-4aba-9c3f-393efb588baf" timestamp="2014-09-16T13:49:54.287366+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+        <stix:Indicator id="example:indicator-a004aaa1-2e46-4b43-9e90-8bfbb31b3c6b" timestamp="2014-09-16T13:53:37.712123+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
             <indicator:Title>Indicator with ID 4214243</indicator:Title>
             <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">Domain Watchlist</indicator:Type>
             <indicator:Alternative_ID>1039</indicator:Alternative_ID>
-            <indicator:Observable id="example:Observable-4fd89619-9667-425c-82b6-c19ca7c0d426">
-                <cybox:Object id="example:DomainName-2c05dccc-3aaa-4f4f-a983-0711701380c9">
+            <indicator:Observable id="example:Observable-c0d7c3f5-2828-452b-9b80-bc58491de06f">
+                <cybox:Object id="example:DomainName-fa201f8d-232e-49ca-bbd9-3029a62fae0f">
                     <cybox:Properties xsi:type="DomainNameObj:DomainNameObjectType">
                         <DomainNameObj:Value condition="Equals">fiverred[.]com </DomainNameObj:Value>
                     </cybox:Properties>
@@ -406,12 +406,12 @@
                 <stixCommon:Description>Trusted Partner</stixCommon:Description>
             </indicator:Producer>
         </stix:Indicator>
-        <stix:Indicator id="example:indicator-2da35d04-8d62-42e2-8b93-75f55e1dc713" timestamp="2014-09-16T13:49:54.287607+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+        <stix:Indicator id="example:indicator-932f7fe2-f86c-43bc-afe7-a3c38835d7b6" timestamp="2014-09-16T13:53:37.712519+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
             <indicator:Title>Indicator with ID 4214244</indicator:Title>
             <indicator:Type>HTTP URI Indicator(s)</indicator:Type>
             <indicator:Alternative_ID>1039</indicator:Alternative_ID>
-            <indicator:Observable id="example:Observable-0b3b875f-07e2-4954-a508-ca91b06e4084">
-                <cybox:Object id="example:HTTPSession-6993f52b-22d1-456d-b94a-3dc286eeeb11">
+            <indicator:Observable id="example:Observable-ce87d407-c95a-4358-af3e-6e3ad14c4a56">
+                <cybox:Object id="example:HTTPSession-b6d45a3c-9249-4a2c-84c9-3baa1b0564e5">
                     <cybox:Properties xsi:type="HTTPSessionObj:HTTPSessionObjectType">
                         <HTTPSessionObj:HTTP_Request_Response>
                             <HTTPSessionObj:HTTP_Client_Request>
@@ -431,12 +431,12 @@
                 <stixCommon:Description>Trusted Partner</stixCommon:Description>
             </indicator:Producer>
         </stix:Indicator>
-        <stix:Indicator id="example:indicator-373dbe79-50e3-4ae6-87e8-6d97c5361ee8" timestamp="2014-09-16T13:49:54.288014+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+        <stix:Indicator id="example:indicator-9722f8e7-f6be-4583-a16d-efb7d6d051e1" timestamp="2014-09-16T13:53:37.713035+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
             <indicator:Title>Indicator with ID 4214245</indicator:Title>
             <indicator:Type>HTTP URI Indicator(s)</indicator:Type>
             <indicator:Alternative_ID>1039</indicator:Alternative_ID>
-            <indicator:Observable id="example:Observable-e7a42a2e-0cda-4326-821f-a74624a2b982">
-                <cybox:Object id="example:HTTPSession-7db58967-64ab-4fb1-84a7-e2e6efd67f88">
+            <indicator:Observable id="example:Observable-ed9b38c9-36d6-4667-8467-baf763b6bed5">
+                <cybox:Object id="example:HTTPSession-1519ccef-daaf-4a31-94e3-d7f99dfc909a">
                     <cybox:Properties xsi:type="HTTPSessionObj:HTTPSessionObjectType">
                         <HTTPSessionObj:HTTP_Request_Response>
                             <HTTPSessionObj:HTTP_Client_Request>
