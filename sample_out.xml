@@ -1,0 +1,469 @@
+<stix:STIX_Package 
+	xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+	xmlns:cybox="http://cybox.mitre.org/cybox-2"
+	xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
+	xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2"
+	xmlns:DomainNameObj="http://cybox.mitre.org/objects#DomainNameObject-1"
+	xmlns:EmailMessageObj="http://cybox.mitre.org/objects#EmailMessageObject-2"
+	xmlns:FileObj="http://cybox.mitre.org/objects#FileObject-2"
+	xmlns:HTTPSessionObj="http://cybox.mitre.org/objects#HTTPSessionObject-2"
+	xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2"
+	xmlns:SocketAddressObj="http://cybox.mitre.org/objects#SocketAddressObject-1"
+	xmlns:example="http://example.com"
+	xmlns:incident="http://stix.mitre.org/Incident-1"
+	xmlns:indicator="http://stix.mitre.org/Indicator-2"
+	xmlns:stixCommon="http://stix.mitre.org/common-1"
+	xmlns:stixVocabs="http://stix.mitre.org/default_vocabularies-1"
+	xmlns:stix="http://stix.mitre.org/stix-1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://cybox.mitre.org/common-2 http://cybox.mitre.org/XMLSchema/common/2.1/cybox_common.xsd
+	http://cybox.mitre.org/cybox-2 http://cybox.mitre.org/XMLSchema/core/2.1/cybox_core.xsd
+	http://cybox.mitre.org/default_vocabularies-2 http://cybox.mitre.org/XMLSchema/default_vocabularies/2.1/cybox_default_vocabularies.xsd
+	http://cybox.mitre.org/objects#AddressObject-2 http://cybox.mitre.org/XMLSchema/objects/Address/2.1/Address_Object.xsd
+	http://cybox.mitre.org/objects#DomainNameObject-1 http://cybox.mitre.org/XMLSchema/objects/Domain_Name/1.0/Domain_Name_Object.xsd
+	http://cybox.mitre.org/objects#EmailMessageObject-2 http://cybox.mitre.org/XMLSchema/objects/Email_Message/2.1/Email_Message_Object.xsd
+	http://cybox.mitre.org/objects#FileObject-2 http://cybox.mitre.org/XMLSchema/objects/File/2.1/File_Object.xsd
+	http://cybox.mitre.org/objects#HTTPSessionObject-2 http://cybox.mitre.org/XMLSchema/objects/HTTP_Session/2.1/HTTP_Session_Object.xsd
+	http://cybox.mitre.org/objects#PortObject-2 http://cybox.mitre.org/XMLSchema/objects/Port/2.1/Port_Object.xsd
+	http://cybox.mitre.org/objects#SocketAddressObject-1 http://cybox.mitre.org/XMLSchema/objects/Socket_Address/1.1/Socket_Address_Object.xsd
+	http://stix.mitre.org/Incident-1 http://stix.mitre.org/XMLSchema/incident/1.1.1/incident.xsd
+	http://stix.mitre.org/Indicator-2 http://stix.mitre.org/XMLSchema/indicator/2.1.1/indicator.xsd
+	http://stix.mitre.org/common-1 http://stix.mitre.org/XMLSchema/common/1.1.1/stix_common.xsd
+	http://stix.mitre.org/default_vocabularies-1 http://stix.mitre.org/XMLSchema/default_vocabularies/1.1.1/stix_default_vocabularies.xsd
+	http://stix.mitre.org/stix-1 http://stix.mitre.org/XMLSchema/core/1.1.1/stix_core.xsd" id="example:Package-9d2addbb-6821-4dc5-b654-3d3c4a755dd4" version="1.1.1" timestamp="2014-09-16T13:49:54.281918+00:00">
+    <stix:STIX_Header>
+        <stix:Title>Indicators</stix:Title>
+        <stix:Package_Intent xsi:type="stixVocabs:PackageIntentVocab-1.0">Indicators</stix:Package_Intent>
+    </stix:STIX_Header>
+    <stix:Indicators>
+        <stix:Indicator id="example:indicator-082825ef-c6ed-4fd7-b0b8-66fffb4527fc" timestamp="2014-09-16T13:49:54.282258+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+            <indicator:Title>Indicator with ID 4214227</indicator:Title>
+            <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">Malicious E-mail</indicator:Type>
+            <indicator:Alternative_ID>1039</indicator:Alternative_ID>
+            <indicator:Observable id="example:Observable-509df880-e2d9-42d7-84a2-c50590387f6d">
+                <cybox:Object id="example:EmailMessage-26edb06f-0aab-4b63-8d5a-90a8e9abe612">
+                    <cybox:Properties xsi:type="EmailMessageObj:EmailMessageObjectType">
+                        <EmailMessageObj:Header>
+                            <EmailMessageObj:Subject condition="Equals">Subject: Scanned Image from a HP Digital Device</EmailMessageObj:Subject>
+                        </EmailMessageObj:Header>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Kill_Chain_Phases>
+                <stixCommon:Kill_Chain_Phase phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee" kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"/>
+            </indicator:Kill_Chain_Phases>
+            <indicator:Producer>
+                <stixCommon:Description>Trusted Partner</stixCommon:Description>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-61875d52-0318-4f06-a42e-c719a191041e" timestamp="2014-09-16T13:49:54.282616+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+            <indicator:Title>Indicator with ID 4214228</indicator:Title>
+            <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">Malicious E-mail</indicator:Type>
+            <indicator:Alternative_ID>1039</indicator:Alternative_ID>
+            <indicator:Observable id="example:Observable-fe673ba4-30d7-41ee-a66e-de6e39d7a729">
+                <cybox:Object id="example:EmailMessage-2743467c-6dcf-4cf4-93b9-8f8ecf00e16d">
+                    <cybox:Properties xsi:type="EmailMessageObj:EmailMessageObjectType">
+                        <EmailMessageObj:Header>
+                            <EmailMessageObj:Subject condition="Equals">Sender: supprefnum170@theemploymentspecialistlawyers[.]com</EmailMessageObj:Subject>
+                        </EmailMessageObj:Header>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Kill_Chain_Phases>
+                <stixCommon:Kill_Chain_Phase phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee" kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"/>
+            </indicator:Kill_Chain_Phases>
+            <indicator:Producer>
+                <stixCommon:Description>Trusted Partner</stixCommon:Description>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-062aaa66-70fe-43ab-9918-a95fc4c0d4bb" timestamp="2014-09-16T13:49:54.282906+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+            <indicator:Title>Indicator with ID 4214229</indicator:Title>
+            <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">Malicious E-mail</indicator:Type>
+            <indicator:Alternative_ID>1039</indicator:Alternative_ID>
+            <indicator:Observable id="example:Observable-3be91888-0be3-4c05-81ab-0a04212fabc2">
+                <cybox:Object id="example:EmailMessage-b2a8a456-f224-4c1e-b3f3-4c13c60496e3">
+                    <cybox:Properties xsi:type="EmailMessageObj:EmailMessageObjectType">
+                        <EmailMessageObj:Header>
+                            <EmailMessageObj:Subject condition="Equals">Subject: Urgent court notice SN36856</EmailMessageObj:Subject>
+                        </EmailMessageObj:Header>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Kill_Chain_Phases>
+                <stixCommon:Kill_Chain_Phase phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee" kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"/>
+            </indicator:Kill_Chain_Phases>
+            <indicator:Producer>
+                <stixCommon:Description>Trusted Partner</stixCommon:Description>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-71a879ea-c43d-4c93-bdae-1e17bae68532" timestamp="2014-09-16T13:49:54.283150+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+            <indicator:Title>Indicator with ID 4214230</indicator:Title>
+            <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">Malicious E-mail</indicator:Type>
+            <indicator:Alternative_ID>1039</indicator:Alternative_ID>
+            <indicator:Observable id="example:Observable-38c23cec-b544-494e-bdca-8c4f9965582b">
+                <cybox:Object id="example:EmailMessage-62967ebf-5f55-4aa6-8ee4-daaf19a83761">
+                    <cybox:Properties xsi:type="EmailMessageObj:EmailMessageObjectType">
+                        <EmailMessageObj:Header>
+                            <EmailMessageObj:Subject condition="Equals">Attachment: Copy_court_notice_TN8050.zip</EmailMessageObj:Subject>
+                        </EmailMessageObj:Header>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Kill_Chain_Phases>
+                <stixCommon:Kill_Chain_Phase phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee" kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"/>
+            </indicator:Kill_Chain_Phases>
+            <indicator:Producer>
+                <stixCommon:Description>Trusted Partner</stixCommon:Description>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-b33579c7-4f2b-4667-915b-c9b16958e6f7" timestamp="2014-09-16T13:49:54.283431+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+            <indicator:Title>Indicator with ID 4214231</indicator:Title>
+            <indicator:Type>File Indicator(s)</indicator:Type>
+            <indicator:Alternative_ID>1039</indicator:Alternative_ID>
+            <indicator:Observable id="example:Observable-e75047f2-0537-43f1-b3ba-764dfc9e754b">
+                <cybox:Object id="example:File-5b8b5965-aa62-42e4-8180-0c2dfe112a07">
+                    <cybox:Properties xsi:type="FileObj:FileObjectType">
+                        <FileObj:File_Name condition="Equals">Court_Notice_Copy.exe</FileObj:File_Name>
+                        <FileObj:Hashes>
+                            <cyboxCommon:Hash>
+                                <cyboxCommon:Type condition="Equals" xsi:type="cyboxVocabs:HashNameVocab-1.0">Other</cyboxCommon:Type>
+                                <cyboxCommon:Simple_Hash_Value condition="Equals">4adee84193b467d0ea2a2a64e4767586 </cyboxCommon:Simple_Hash_Value>
+                            </cyboxCommon:Hash>
+                        </FileObj:Hashes>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Kill_Chain_Phases>
+                <stixCommon:Kill_Chain_Phase phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee" kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"/>
+            </indicator:Kill_Chain_Phases>
+            <indicator:Producer>
+                <stixCommon:Description>Trusted Partner</stixCommon:Description>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-c67de919-4d43-419f-a84f-f30afae8b9cf" timestamp="2014-09-16T13:49:54.283722+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+            <indicator:Title>Indicator with ID 4214232</indicator:Title>
+            <indicator:Type>File Indicator(s)</indicator:Type>
+            <indicator:Alternative_ID>1039</indicator:Alternative_ID>
+            <indicator:Observable id="example:Observable-aa7db266-82ac-42df-b497-519f88224419">
+                <cybox:Object id="example:File-711a10eb-fd76-45ad-8df7-4f684c288ccf">
+                    <cybox:Properties xsi:type="FileObj:FileObjectType">
+                        <FileObj:File_Name condition="Equals">Copy_court_notice_TN8050.zip</FileObj:File_Name>
+                        <FileObj:Hashes>
+                            <cyboxCommon:Hash>
+                                <cyboxCommon:Type condition="Equals" xsi:type="cyboxVocabs:HashNameVocab-1.0">MD5</cyboxCommon:Type>
+                                <cyboxCommon:Simple_Hash_Value condition="Equals">378b3745f7b55e2d0e91a9dd9e653ab1</cyboxCommon:Simple_Hash_Value>
+                            </cyboxCommon:Hash>
+                        </FileObj:Hashes>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Kill_Chain_Phases>
+                <stixCommon:Kill_Chain_Phase phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee" kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"/>
+            </indicator:Kill_Chain_Phases>
+            <indicator:Producer>
+                <stixCommon:Description>Trusted Partner</stixCommon:Description>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-f307c0f9-6b7e-415f-89a4-39affe719b0e" timestamp="2014-09-16T13:49:54.284004+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+            <indicator:Title>Indicator with ID 4214233</indicator:Title>
+            <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">IP Watchlist</indicator:Type>
+            <indicator:Alternative_ID>1039</indicator:Alternative_ID>
+            <indicator:Observable id="example:Observable-788d38aa-f761-4c91-be11-79a287f7fad6">
+                <cybox:Object id="example:SocketAddress-c5816515-190d-4eab-9672-299dfbab851b">
+                    <cybox:Properties xsi:type="SocketAddressObj:SocketAddressObjectType">
+                        <SocketAddressObj:IP_Address xsi:type="AddressObj:AddressObjectType">
+                            <AddressObj:Address_Value condition="Equals">194[.]90[.]168[.]147</AddressObj:Address_Value>
+                        </SocketAddressObj:IP_Address>
+                        <SocketAddressObj:Port xsi:type="PortObj:PortObjectType">
+                            <PortObj:Port_Value condition="Equals">443</PortObj:Port_Value>
+                            <PortObj:Layer4_Protocol>TCP</PortObj:Layer4_Protocol>
+                        </SocketAddressObj:Port>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Kill_Chain_Phases>
+                <stixCommon:Kill_Chain_Phase phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee" kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"/>
+            </indicator:Kill_Chain_Phases>
+            <indicator:Producer>
+                <stixCommon:Description>Trusted Partner</stixCommon:Description>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-51abfa63-aeb9-412e-ac56-a96f97df59fd" timestamp="2014-09-16T13:49:54.284458+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+            <indicator:Title>Indicator with ID 4214234</indicator:Title>
+            <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">IP Watchlist</indicator:Type>
+            <indicator:Alternative_ID>1039</indicator:Alternative_ID>
+            <indicator:Observable id="example:Observable-492cf45c-3a0c-4983-98a9-25bad3058199">
+                <cybox:Object id="example:SocketAddress-5eb005f2-a7df-49fd-aedc-29929e856d7c">
+                    <cybox:Properties xsi:type="SocketAddressObj:SocketAddressObjectType">
+                        <SocketAddressObj:IP_Address xsi:type="AddressObj:AddressObjectType">
+                            <AddressObj:Address_Value condition="Equals">174[.]122[.]234[.]98 </AddressObj:Address_Value>
+                        </SocketAddressObj:IP_Address>
+                        <SocketAddressObj:Port xsi:type="PortObj:PortObjectType">
+                            <PortObj:Port_Value condition="Equals">8080</PortObj:Port_Value>
+                            <PortObj:Layer4_Protocol>TCP</PortObj:Layer4_Protocol>
+                        </SocketAddressObj:Port>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Kill_Chain_Phases>
+                <stixCommon:Kill_Chain_Phase phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee" kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"/>
+            </indicator:Kill_Chain_Phases>
+            <indicator:Producer>
+                <stixCommon:Description>Trusted Partner</stixCommon:Description>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-8631ab61-4b96-4342-998e-f43339a87adf" timestamp="2014-09-16T13:49:54.284729+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+            <indicator:Title>Indicator with ID 4214235</indicator:Title>
+            <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">IP Watchlist</indicator:Type>
+            <indicator:Alternative_ID>1039</indicator:Alternative_ID>
+            <indicator:Observable id="example:Observable-0861e849-792c-4727-946f-561a2693326f">
+                <cybox:Object id="example:SocketAddress-cda3cee8-6de9-44e5-9024-f7b1de1cb75a">
+                    <cybox:Properties xsi:type="SocketAddressObj:SocketAddressObjectType">
+                        <SocketAddressObj:IP_Address xsi:type="AddressObj:AddressObjectType">
+                            <AddressObj:Address_Value condition="Equals">174[.]122[.]234[.]98 </AddressObj:Address_Value>
+                        </SocketAddressObj:IP_Address>
+                        <SocketAddressObj:Port xsi:type="PortObj:PortObjectType">
+                            <PortObj:Port_Value condition="Equals">80</PortObj:Port_Value>
+                            <PortObj:Layer4_Protocol>TCP</PortObj:Layer4_Protocol>
+                        </SocketAddressObj:Port>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Kill_Chain_Phases>
+                <stixCommon:Kill_Chain_Phase phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee" kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"/>
+            </indicator:Kill_Chain_Phases>
+            <indicator:Producer>
+                <stixCommon:Description>Trusted Partner</stixCommon:Description>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-a7f2fbcf-a47a-4ae4-b9ba-e25d7edc8abd" timestamp="2014-09-16T13:49:54.285031+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+            <indicator:Title>Indicator with ID 4214236</indicator:Title>
+            <indicator:Type>HTTP URI Indicator(s)</indicator:Type>
+            <indicator:Alternative_ID>1039</indicator:Alternative_ID>
+            <indicator:Observable id="example:Observable-38ff1c1c-6bad-4599-8dee-3d4045369ad8">
+                <cybox:Object id="example:HTTPSession-3fc4ccc0-0371-4d59-a11f-90710f6768fb">
+                    <cybox:Properties xsi:type="HTTPSessionObj:HTTPSessionObjectType">
+                        <HTTPSessionObj:HTTP_Request_Response>
+                            <HTTPSessionObj:HTTP_Client_Request>
+                                <HTTPSessionObj:HTTP_Request_Line>
+                                    <HTTPSessionObj:HTTP_Method datatype="string" condition="Equals">POST</HTTPSessionObj:HTTP_Method>
+                                    <HTTPSessionObj:Value condition="Equals">/C86D47ADAC3D69840671C7AA1A65866E26139C0681</HTTPSessionObj:Value>
+                                </HTTPSessionObj:HTTP_Request_Line>
+                            </HTTPSessionObj:HTTP_Client_Request>
+                        </HTTPSessionObj:HTTP_Request_Response>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Kill_Chain_Phases>
+                <stixCommon:Kill_Chain_Phase phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee" kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"/>
+            </indicator:Kill_Chain_Phases>
+            <indicator:Producer>
+                <stixCommon:Description>Trusted Partner</stixCommon:Description>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-885551b3-96b9-4080-b9ca-5274b94f2756" timestamp="2014-09-16T13:49:54.285551+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+            <indicator:Title>Indicator with ID 4214237</indicator:Title>
+            <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">Malicious E-mail</indicator:Type>
+            <indicator:Alternative_ID>1039</indicator:Alternative_ID>
+            <indicator:Observable id="example:Observable-6cf3c919-6be4-41a8-9d49-3d0939a5e929">
+                <cybox:Object id="example:EmailMessage-bf2cd3d1-d960-4bed-bb0f-8c6a53f3b94a">
+                    <cybox:Properties xsi:type="EmailMessageObj:EmailMessageObjectType">
+                        <EmailMessageObj:Header>
+                            <EmailMessageObj:Subject condition="Equals">Sender: no-reply@sage[.]co[.]uk</EmailMessageObj:Subject>
+                        </EmailMessageObj:Header>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Kill_Chain_Phases>
+                <stixCommon:Kill_Chain_Phase phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee" kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"/>
+            </indicator:Kill_Chain_Phases>
+            <indicator:Producer>
+                <stixCommon:Description>Trusted Partner</stixCommon:Description>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-a047b119-0171-4162-b556-667c5bafe3a4" timestamp="2014-09-16T13:49:54.285800+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+            <indicator:Title>Indicator with ID 4214238</indicator:Title>
+            <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">Malicious E-mail</indicator:Type>
+            <indicator:Alternative_ID>1039</indicator:Alternative_ID>
+            <indicator:Observable id="example:Observable-09a954f9-5d90-41f8-8959-3b1a609ee0d3">
+                <cybox:Object id="example:EmailMessage-42548c40-0bbf-4c6b-940a-c8c4af13807d">
+                    <cybox:Properties xsi:type="EmailMessageObj:EmailMessageObjectType">
+                        <EmailMessageObj:Header>
+                            <EmailMessageObj:Subject condition="Equals">Subject: Sage Accounting Invoice #5740995</EmailMessageObj:Subject>
+                        </EmailMessageObj:Header>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Kill_Chain_Phases>
+                <stixCommon:Kill_Chain_Phase phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee" kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"/>
+            </indicator:Kill_Chain_Phases>
+            <indicator:Producer>
+                <stixCommon:Description>Trusted Partner</stixCommon:Description>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-a1323219-2198-4cb2-91de-27febbe68821" timestamp="2014-09-16T13:49:54.286084+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+            <indicator:Title>Indicator with ID 4214239</indicator:Title>
+            <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">Malicious E-mail</indicator:Type>
+            <indicator:Alternative_ID>1039</indicator:Alternative_ID>
+            <indicator:Observable id="example:Observable-71b3bff1-8811-4eff-bf84-e79f78cc5049">
+                <cybox:Object id="example:EmailMessage-f168fcf7-aee6-4f48-8c27-8ac3b79bed58">
+                    <cybox:Properties xsi:type="EmailMessageObj:EmailMessageObjectType">
+                        <EmailMessageObj:Header>
+                            <EmailMessageObj:Subject condition="Equals">Attachment: Invoice_5740995.zip</EmailMessageObj:Subject>
+                        </EmailMessageObj:Header>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Kill_Chain_Phases>
+                <stixCommon:Kill_Chain_Phase phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee" kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"/>
+            </indicator:Kill_Chain_Phases>
+            <indicator:Producer>
+                <stixCommon:Description>Trusted Partner</stixCommon:Description>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-29c224f5-d523-4be1-b484-c730ba7576c1" timestamp="2014-09-16T13:49:54.286335+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+            <indicator:Title>Indicator with ID 4214240</indicator:Title>
+            <indicator:Type>File Indicator(s)</indicator:Type>
+            <indicator:Alternative_ID>1039</indicator:Alternative_ID>
+            <indicator:Observable id="example:Observable-49296245-0d84-40c4-9c7c-5ae142563603">
+                <cybox:Object id="example:File-f210a4dd-f011-4d97-a3c7-f0587637f241">
+                    <cybox:Properties xsi:type="FileObj:FileObjectType">
+                        <FileObj:File_Name condition="Equals">Invoice_04022014.exe</FileObj:File_Name>
+                        <FileObj:Hashes>
+                            <cyboxCommon:Hash>
+                                <cyboxCommon:Type condition="Equals" xsi:type="cyboxVocabs:HashNameVocab-1.0">Other</cyboxCommon:Type>
+                                <cyboxCommon:Simple_Hash_Value condition="Equals">e6da8b80e9443df6234a7482224f4bcb </cyboxCommon:Simple_Hash_Value>
+                            </cyboxCommon:Hash>
+                        </FileObj:Hashes>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Kill_Chain_Phases>
+                <stixCommon:Kill_Chain_Phase phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee" kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"/>
+            </indicator:Kill_Chain_Phases>
+            <indicator:Producer>
+                <stixCommon:Description>Trusted Partner</stixCommon:Description>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-c66cbe83-71aa-4926-8511-5ac24399fce3" timestamp="2014-09-16T13:49:54.286660+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+            <indicator:Title>Indicator with ID 4214241</indicator:Title>
+            <indicator:Type>File Indicator(s)</indicator:Type>
+            <indicator:Alternative_ID>1039</indicator:Alternative_ID>
+            <indicator:Observable id="example:Observable-c4e66d20-2451-42ea-8eff-d5b31811ee8f">
+                <cybox:Object id="example:File-bbf0880e-7507-48e1-837f-f89a8d046207">
+                    <cybox:Properties xsi:type="FileObj:FileObjectType">
+                        <FileObj:File_Name condition="Equals">Invoice_5740995.zip</FileObj:File_Name>
+                        <FileObj:Hashes>
+                            <cyboxCommon:Hash>
+                                <cyboxCommon:Type condition="Equals" xsi:type="cyboxVocabs:HashNameVocab-1.0">Other</cyboxCommon:Type>
+                                <cyboxCommon:Simple_Hash_Value condition="Equals">5f343a577e04d708fa89e8cc941f9dc1 </cyboxCommon:Simple_Hash_Value>
+                            </cyboxCommon:Hash>
+                        </FileObj:Hashes>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Kill_Chain_Phases>
+                <stixCommon:Kill_Chain_Phase phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee" kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"/>
+            </indicator:Kill_Chain_Phases>
+            <indicator:Producer>
+                <stixCommon:Description>Trusted Partner</stixCommon:Description>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-3a257f0b-f193-4966-b31d-e8c73cc72915" timestamp="2014-09-16T13:49:54.286951+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+            <indicator:Title>Indicator with ID 4214242</indicator:Title>
+            <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">Domain Watchlist</indicator:Type>
+            <indicator:Alternative_ID>1039</indicator:Alternative_ID>
+            <indicator:Observable id="example:Observable-cd6715ce-7f8f-4760-967c-09367a5b901e">
+                <cybox:Object id="example:DomainName-9b14d8dd-4c0c-46b3-a973-988fb573c07b">
+                    <cybox:Properties xsi:type="DomainNameObj:DomainNameObjectType">
+                        <DomainNameObj:Value condition="Equals">tadanoasia[.]com </DomainNameObj:Value>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Kill_Chain_Phases>
+                <stixCommon:Kill_Chain_Phase phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee" kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"/>
+            </indicator:Kill_Chain_Phases>
+            <indicator:Producer>
+                <stixCommon:Description>Trusted Partner</stixCommon:Description>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-2a93d21b-8d15-4aba-9c3f-393efb588baf" timestamp="2014-09-16T13:49:54.287366+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+            <indicator:Title>Indicator with ID 4214243</indicator:Title>
+            <indicator:Type xsi:type="stixVocabs:IndicatorTypeVocab-1.1">Domain Watchlist</indicator:Type>
+            <indicator:Alternative_ID>1039</indicator:Alternative_ID>
+            <indicator:Observable id="example:Observable-4fd89619-9667-425c-82b6-c19ca7c0d426">
+                <cybox:Object id="example:DomainName-2c05dccc-3aaa-4f4f-a983-0711701380c9">
+                    <cybox:Properties xsi:type="DomainNameObj:DomainNameObjectType">
+                        <DomainNameObj:Value condition="Equals">fiverred[.]com </DomainNameObj:Value>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Kill_Chain_Phases>
+                <stixCommon:Kill_Chain_Phase phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee" kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"/>
+            </indicator:Kill_Chain_Phases>
+            <indicator:Producer>
+                <stixCommon:Description>Trusted Partner</stixCommon:Description>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-2da35d04-8d62-42e2-8b93-75f55e1dc713" timestamp="2014-09-16T13:49:54.287607+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+            <indicator:Title>Indicator with ID 4214244</indicator:Title>
+            <indicator:Type>HTTP URI Indicator(s)</indicator:Type>
+            <indicator:Alternative_ID>1039</indicator:Alternative_ID>
+            <indicator:Observable id="example:Observable-0b3b875f-07e2-4954-a508-ca91b06e4084">
+                <cybox:Object id="example:HTTPSession-6993f52b-22d1-456d-b94a-3dc286eeeb11">
+                    <cybox:Properties xsi:type="HTTPSessionObj:HTTPSessionObjectType">
+                        <HTTPSessionObj:HTTP_Request_Response>
+                            <HTTPSessionObj:HTTP_Client_Request>
+                                <HTTPSessionObj:HTTP_Request_Line>
+                                    <HTTPSessionObj:HTTP_Method datatype="string" condition="Equals">GET</HTTPSessionObj:HTTP_Method>
+                                    <HTTPSessionObj:Value condition="Equals">/images/subject/0204UKd.en0</HTTPSessionObj:Value>
+                                </HTTPSessionObj:HTTP_Request_Line>
+                            </HTTPSessionObj:HTTP_Client_Request>
+                        </HTTPSessionObj:HTTP_Request_Response>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Kill_Chain_Phases>
+                <stixCommon:Kill_Chain_Phase phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee" kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"/>
+            </indicator:Kill_Chain_Phases>
+            <indicator:Producer>
+                <stixCommon:Description>Trusted Partner</stixCommon:Description>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-373dbe79-50e3-4ae6-87e8-6d97c5361ee8" timestamp="2014-09-16T13:49:54.288014+00:00" xsi:type='indicator:IndicatorType' negate="false" version="2.1.1">
+            <indicator:Title>Indicator with ID 4214245</indicator:Title>
+            <indicator:Type>HTTP URI Indicator(s)</indicator:Type>
+            <indicator:Alternative_ID>1039</indicator:Alternative_ID>
+            <indicator:Observable id="example:Observable-e7a42a2e-0cda-4326-821f-a74624a2b982">
+                <cybox:Object id="example:HTTPSession-7db58967-64ab-4fb1-84a7-e2e6efd67f88">
+                    <cybox:Properties xsi:type="HTTPSessionObj:HTTPSessionObjectType">
+                        <HTTPSessionObj:HTTP_Request_Response>
+                            <HTTPSessionObj:HTTP_Client_Request>
+                                <HTTPSessionObj:HTTP_Request_Line>
+                                    <HTTPSessionObj:HTTP_Method datatype="string" condition="Equals">GET</HTTPSessionObj:HTTP_Method>
+                                    <HTTPSessionObj:Value condition="Equals">/images/0204UKd.en0</HTTPSessionObj:Value>
+                                </HTTPSessionObj:HTTP_Request_Line>
+                            </HTTPSessionObj:HTTP_Client_Request>
+                        </HTTPSessionObj:HTTP_Request_Response>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Kill_Chain_Phases>
+                <stixCommon:Kill_Chain_Phase phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee" kill_chain_id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d"/>
+            </indicator:Kill_Chain_Phases>
+            <indicator:Producer>
+                <stixCommon:Description>Trusted Partner</stixCommon:Description>
+            </indicator:Producer>
+        </stix:Indicator>
+    </stix:Indicators>
+    <stix:TTPs>
+        <stix:Kill_Chains>
+            <stixCommon:Kill_Chain id="stix:KillChain-3fbfebf2-25a7-47b9-ad8b-3f65e56e402d" definer="U5" name="Degenerate Cyber Kill Chain">
+                <stixCommon:Kill_Chain_Phase ordinality="1" name="Pre-infection indicator" phase_id="stix:KillChainPhase-1a3c67f7-5623-4621-8d67-74963d1c5fee"/>
+                <stixCommon:Kill_Chain_Phase ordinality="2" name="Post-infection indicator" phase_id="stix:KillChainPhase-d5459305-1a27-4f50-9875-23793d75e4fe"/>
+            </stixCommon:Kill_Chain>
+        </stix:Kill_Chains>
+    </stix:TTPs>
+</stix:STIX_Package>
+

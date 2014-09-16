@@ -89,7 +89,9 @@ def main():
             ind_obj.ip_address.condition= "Equals"
             if row['indValue']:
                 port = Port()
-                port.port_value = row['indValue']
+                # pull port out, since it's in form "TCP Port 42"
+                port.port_value = row['indValue'].split()[-1] 
+                port.layer4_protocol = row['indValue'].split()[0] 
                 port.port_value.condition= "Equals"
                 ind_obj.port = port
 
