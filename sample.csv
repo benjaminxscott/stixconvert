@@ -1,0 +1,20 @@
+IndicatorID,Indicator,indValue,Notes,Infection Type,Indicator Type,Malware,Reference,ControlGroupID
+4214227,Subject: Scanned Image from a HP Digital Device,,,Pre-Infection,Email Indicator(s),Malware samples,Trusted Partner,1039
+4214228,Sender: supprefnum170@theemploymentspecialistlawyers[.]com,,,Pre-Infection,Email Indicator(s),Malware samples,Trusted Partner,1039
+4214229,Subject: Urgent court notice SN36856,,,Pre-Infection,Email Indicator(s),Malware samples,Trusted Partner,1039
+4214230,Attachment: Copy_court_notice_TN8050.zip,,,Pre-Infection,Email Indicator(s),Malware samples,Trusted Partner,1039
+4214231,Court_Notice_Copy.exe,4adee84193b467d0ea2a2a64e4767586 ,,Pre-Infection,File Indicator(s),Malware samples,Trusted Partner,1039
+4214232,Copy_court_notice_TN8050.zip,378b3745f7b55e2d0e91a9dd9e653ab1,,Pre-Infection,File Indicator(s),Malware samples,Trusted Partner,1039
+4214233,194[.]90[.]168[.]147,TCP Port: 443,,Post-Infection,IP Indicator(s),Malware samples,Trusted Partner,1039
+4214234,174[.]122[.]234[.]98 ,TCP Port: 8080,,Post-Infection,IP Indicator(s),Malware samples,Trusted Partner,1039
+4214235,174[.]122[.]234[.]98 ,TCP Port: 80,,Post-Infection,IP Indicator(s),Malware samples,Trusted Partner,1039
+4214236,POST /C86D47ADAC3D69840671C7AA1A65866E26139C0681 ,,,Post-Infection,HTTP URI Indicator(s),Malware samples,Trusted Partner,1039
+4214237,Sender: no-reply@sage[.]co[.]uk,,,Pre-Infection,Email  Indicator(s),Malware samples,Trusted Partner,1039
+4214238,Subject: Sage Accounting Invoice #5740995,,,Pre-Infection,Email Indicator(s),Malware samples,Trusted Partner,1039
+4214239,Attachment: Invoice_5740995.zip,,,Pre-Infection,Email Indicator(s),Malware samples,Trusted Partner,1039
+4214240,Invoice_04022014.exe,e6da8b80e9443df6234a7482224f4bcb ,,Pre-Infection,File Indicator(s),Malware samples,Trusted Partner,1039
+4214241,Invoice_5740995.zip,5f343a577e04d708fa89e8cc941f9dc1 ,,Pre-Infection,File Indicator(s),Malware samples,Trusted Partner,1039
+4214242,tadanoasia[.]com ,TCP Port: 80,,Post-Infection,Domain Indicator(s),Malware samples,Trusted Partner,1039
+4214243,fiverred[.]com ,TCP Port: 80,,Post-Infection,Domain Indicator(s),Malware samples,Trusted Partner,1039
+4214244,GET /images/subject/0204UKd.en0 ,,,Post-Infection,HTTP URI Indicator(s),Malware samples,Trusted Partner,1039
+4214245,GET /images/0204UKd.en0 ,,,Post-Infection,HTTP URI Indicator(s),Malware samples,Trusted Partner,1039
