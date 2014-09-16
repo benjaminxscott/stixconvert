@@ -20,7 +20,7 @@ from cybox.common import ToolInformationList, Time
 from cybox.common import Hash
 from stix.common.vocabs import VocabString
 
-from cybox.objects.email_message_object import EmailMessage,Attachments
+from cybox.objects.email_message_object import EmailMessage,Attachments,AttachmentReference
 from cybox.objects.socket_address_object import SocketAddress
 from cybox.objects.port_object import Port
 from cybox.objects.domain_name_object import DomainName
@@ -107,8 +107,8 @@ def main():
         elif 'Email' in ind_type:
             # parse out which part of the email is being
             # i.e. "Sender: attach | Subject: whatever"
-            tag = row['Indicator'].split()[0]
-            val = row['Indicator'].split()[1]
+            tag = row['Indicator'].split(':')[0]
+            val = row['Indicator'].split(':')[1]
             ind.add_indicator_type ("Malicious E-mail")
             ind_obj = EmailMessage()
             
@@ -122,13 +122,15 @@ def main():
             elif "Attachment" in tag:
                 # make inline File to store filename 
                 file_obj = File()
-                file_obj.id_ = cybox.utils.create_id(prefix="File")
+                file_obj.id_ = "seriously"
                 file_obj.file_name = val
                 file_obj.file_name.condition = "Equals"
                 ind_obj.add_related(file_obj, "Contains")
                 
+                print ind_obj
                 attach = Attachments()
                 attach.append(file_obj.id_)
+                
                 ind_obj.attachments = attach
                 
         elif 'User Agent' in ind_type:
