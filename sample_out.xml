@@ -1,5 +1,3 @@
-<cybox.objects.email_message_object.EmailMessage object at 0x7fe89d92d0d0>
-<cybox.objects.email_message_object.EmailMessage object at 0x7fe89d948590>
 <stix:STIX_Package 
 	xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
 	xmlns:cybox="http://cybox.mitre.org/cybox-2"
@@ -109,7 +107,7 @@
                 <cybox:Object id="example:EmailMessage-6784026f-a0a2-40cd-95c4-2cb31f5bb2ef">
                     <cybox:Properties xsi:type="EmailMessageObj:EmailMessageObjectType">
                         <EmailMessageObj:Attachments>
-                            <EmailMessageObj:File object_reference="seriously"/>
+                            <EmailMessageObj:File object_reference="example:File-8e938fe-faeb-8172-bd3a-027280e5a14c"/>
                         </EmailMessageObj:Attachments>
                     </cybox:Properties>
                     <cybox:Related_Objects>
@@ -327,7 +325,7 @@
                 <cybox:Object id="example:EmailMessage-ec2df92c-819a-4c1b-9004-d842e80fca24">
                     <cybox:Properties xsi:type="EmailMessageObj:EmailMessageObjectType">
                         <EmailMessageObj:Attachments>
-                            <EmailMessageObj:File object_reference="seriously"/>
+                            <EmailMessageObj:File object_reference="example:File-8bd136f-eb36-56ce-9712-8122f16fb5d6"/>
                         </EmailMessageObj:Attachments>
                     </cybox:Properties>
                     <cybox:Related_Objects>
