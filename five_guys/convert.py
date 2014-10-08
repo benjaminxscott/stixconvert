@@ -122,7 +122,7 @@ def main():
             elif "Attachment" in tag:
                 # make inline File to store filename 
                 file_obj = File()
-                file_obj.id_ = "seriously"
+                file_obj.id_ = cybox.utils.create_id(prefix="File")
                 file_obj.file_name = val
                 file_obj.file_name.condition = "Equals"
                 ind_obj.add_related(file_obj, "Contains")
