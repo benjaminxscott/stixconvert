@@ -1,7 +1,5 @@
-# ConvertMe
-A converter for indicator data
-
-`NOTE: Since representative input data is not available, this script will need modifications to work in production`
+#  Five Guys converter
+Converts computer security indicators provided by international computer security partners
 
 ## Installation
 
@@ -9,22 +7,13 @@ A converter for indicator data
 sudo apt-get install python-dev python-pip libxml2-dev libxslt-dev zlib1g-dev
 
 (under active virtualenv) 
-pip install stix
+> pip install stix
 ```
-
 ## Usage
 
 ```
 ./convert.py -h
 usage: convert.py [-h] [--infile INFILE]
- 
-Parse a given CSV and output STIX XML 
- 
-optional arguments:
-  -h, --help            show this help message and exit
-  --infile INFILE, -f INFILE
-                        input CSV with bot data (default: bots
-.csv)
 ```
 
 ## Input Format

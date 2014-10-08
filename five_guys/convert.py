@@ -127,7 +127,6 @@ def main():
                 file_obj.file_name.condition = "Equals"
                 ind_obj.add_related(file_obj, "Contains")
                 
-                print ind_obj
                 attach = Attachments()
                 attach.append(file_obj.id_)
                 

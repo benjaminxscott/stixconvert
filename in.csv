@@ -1,9 +1,0 @@
-"IndicatorID","Indicator","indValue","Notes","Infection Type","Indicator Type","Malware","Reference","ControlGroupID"
-37,HKCU/Software/Windows/Startup,badinit.exe,persistance,Post-Infection,Registry Indicator,malware sample,Trusted Partner,7
-31337,evil.ru,,bad domain,Pre-Infection,Domain Indicator,malware sample,Trusted Partner,5
-888,1.2.3.4,,bad IP,Infection,IP Indicator,malware sample,Trusted Partner,5
-737,bad.exe,e4d909c290d0fb1ca068ffaddf22cbd0,Installer,Post-Infection,File Indicator,malware sample,Trusted Partner,5
-1984,whatisgoingonhiman,,badmutex,Post-Infection,Mutex Indicator,malware sample,Trusted Partner,5
-1337,GET /gate.php,,Zbot,Post-Infection,HTTP URI Indicator,malware sample,Trusted Partner,5
-42,lynx,,headless browser,Post-Infection,User Agent Indicator,malware sample,Trusted Partner,7
-77,buy it now,,spam email,Pre-Infection,Email Indicator,malware sample,Trusted Partner,7
